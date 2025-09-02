@@ -1,4 +1,4 @@
-<h1 align="center">The Problem: "Detecting Online Grooming By Simple Contrastive Chat Embeddings"</h1>
+<h1 align="center">"Detecting Online Grooming By Simple Contrastive Chat Embeddings"</h1>
 
 
 
