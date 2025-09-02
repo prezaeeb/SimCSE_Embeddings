@@ -54,3 +54,11 @@ We performed labeling based on if a predator id is seen in a conversation as an 
   <h3>Performance Metrics</h3>
 
   - The grooming detection is considered a **two-class classification** problem where we aim to distinguish predatory conversations from non-predatory ones. This research work applies the standard performance metrics containing **Accuracy(Acc)**, **Precision(Pr)**, **Recall(Re)**, and **F-score** (a weighted harmonic mean between precision and recall).
+ 
+  <h3>Requirements: CPU & GPU versions</h3>
+
+  -Given the scale of the dataset, this codebase is designed for parallel processing. For efficient training and inference, it is highly recommended to utilize hardware acceleration, such as a **GPU**, or a **scalable cloud service** like **Azure**.
+
+  -To accommodate different hardware, both a **CPU-optimized** and a **GPU-optimized** version of the code have been provided. The GPU version is ideal for running on **cloud environments** like **Azure** for faster processing.
+
+
