@@ -36,7 +36,7 @@ We performed labeling based on if a predator id is seen in a conversation as an 
 <h3>The Feature Extraction </h3>  
 </h2>  
 
-- The Sentence embeddings (Features) in SimCSE are extracted using both supervised and unsupervised approaches. 
+- The Sentence embeddings (Features) in SimCSE are extracted using both supervised and unsupervised approaches.https://github.com/princeton-nlp/SimCSE 
   
 - In an unsupervised approach, the same sentence is passed twice to the pre-trained network. The standard dropout is used twice for each sentence to gain two different embeddings as positive pairs. Then, the other sentences in the same mini-batch are considered negatives to make the model predict the positive sentence among the negative ones.
 
