@@ -14,7 +14,8 @@ https://dl.acm.org/doi/abs/10.1145/3579987.3586564
 - My approach comprises several components, starting with the **data preprocessing,** followed by a **feature extractor** based on
 **pre-trained network of simple contrastive learning that extracts sentence embeddings (SimCSE)**, and a **classification model**. I use Simple Contrastive Sentence Embedding framework (SimCSE) based on a contrastive objective with pre-trained language models to extract the features, and an SVM for classifying the chat conversations
 The overall pipeline of the proposed system is presented in Figure 1 below:
-![Image Alt](https://github.com/prezaeeb/SimCSE_Embeddings/blob/800af5fa6213ce47f68426c56c414132aa90b614/ProposedModel.png)
+<img src="https://github.com/prezaeeb/SimCSE_Embeddings/blob/800af5fa6213ce47f68426c56c414132aa90b614/ProposedModel.png" alt="Sample Image" width="800" height="700">
+
 
 
 <h3>The Data </h3>
@@ -29,8 +30,8 @@ The applied data has various conversations from online platforms. Mainly, three 
 
 <h3>The Pre-Processing </h3>  
 We performed labeling based on if a predator id is seen in a conversation as an author, that conversation will be tagged as a predatory sample and vice versa (see Figure 4). Also, considering that a predatory conversation always has two authors, we removed the samples with more than two users or only one user. Further, all conversations with less than seven messages were eliminated since they did not provide enough information to be classified. As another refinement, we removed non-English words with no special meanings. No stemming or lemmatization in the pre-processing of the data was performed to keep as much information as possible.
+<img src="https://github.com/prezaeeb/SimCSE_Embeddings/blob/994575e3130a8ded09fdc875aea1f396fe5d1566/PreProcessing.png" alt="Sample Image" width="700" height="500">
 
-![Image Alt](https://github.com/prezaeeb/SimCSE_Embeddings/blob/994575e3130a8ded09fdc875aea1f396fe5d1566/PreProcessing.png)
 
 <h3>The Feature Extraction </h3>  
 </h2>  
@@ -48,3 +49,8 @@ We performed labeling based on if a predator id is seen in a conversation as an 
   <h3>Grooming Conversation Detection:</h3>
     
   - In this work, we focus on **semantic analysis** of grooming chatlogs where the proper feature space covers the meanings behind the sentences and phrases in chat conversations. As such, we produce the feature sets based on a simple contrastive sentence embedding framework (SimCSE). In other words, **we use a SimCSE pretrained network to extract the embeddings for each conversation in a sentence-based manner rather than one entity, such as a word or a token**.
+
+
+  <h3>Performance Metrics</h3>
+
+  - The grooming detection is considered a **two-class classification** problem where we aim to distinguish predatory conversations from non-predatory ones. This research work applies the standard performance metrics containing **Accuracy(Acc)**, **Precision(Pr)**, **Recall(Re)**, and **F-score** (a weighted harmonic mean between precision and recall).
