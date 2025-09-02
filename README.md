@@ -29,3 +29,22 @@ The applied data has various conversations from online platforms. Mainly, three 
 
 <h3>The Pre-Processing </h3>  
 We performed labeling based on if a predator id is seen in a conversation as an author, that conversation will be tagged as a predatory sample and vice versa (see Figure 4). Also, considering that a predatory conversation always has two authors, we removed the samples with more than two users or only one user. Further, all conversations with less than seven messages were eliminated since they did not provide enough information to be classified. As another refinement, we removed non-English words with no special meanings. No stemming or lemmatization in the pre-processing of the data was performed to keep as much information as possible.
+
+![Image Alt](https://github.com/prezaeeb/SimCSE_Embeddings/blob/994575e3130a8ded09fdc875aea1f396fe5d1566/PreProcessing.png)
+
+<h3>The Feature Extraction </h3>  
+</h2>  
+
+- The Sentence embeddings (Features) in SimCSE are extracted using both supervised and unsupervised approaches. 
+  
+- In an unsupervised approach, the same sentence is passed twice to the pre-trained network. The standard dropout is used twice for each sentence to gain two different embeddings as positive pairs. Then, the other sentences in the same mini-batch are considered negatives to make the model predict the positive sentence among the negative ones.
+
+- In the supervised approach, two sentences are entailment pairs if they are related semantically. For instance, consider the "Two dogs are running" as the main sentence; its entailment can be "There are animals outdoors. ", and its contradiction sentence can be "The pets are sitting on a couch.". The sentence and its entailment pairs are considered positive samples. To improve the performance, a contradiction sentence is also given to the pre-trained encoder as the negative sample.
+
+
+  <h3>The classifier </h3>
+  The SVM model takes the embeddings as feature sets and train and test datasets, and predict the grooming conversations. 
+
+  <h3>Grooming Conversation Detection:</h3>
+    
+  - In this work, we focus on **semantic analysis** of grooming chatlogs where the proper feature space covers the meanings behind the sentences and phrases in chat conversations. As such, we produce the feature sets based on a simple contrastive sentence embedding framework (SimCSE). In other words, **we use a SimCSE pretrained network to extract the embeddings for each conversation in a sentence-based manner rather than one entity, such as a word or a token**.
